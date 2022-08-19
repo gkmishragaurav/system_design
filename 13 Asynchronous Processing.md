@@ -24,3 +24,12 @@
 	- If the processing time is long-running, you may not want the user to wait for a response until the system completes the job. For example, when you place an order on Amazon, it takes two days to receive it. You don’t want the browser to spin for two days until the item arrives at your door. Another example is a system that transcodes movies, which can take a long time. You don’t want the user who uploaded the movie to wait for an hour before the movie finishes transcoding.
 - Improve Perceived Latency
 	- As discussed in the e-commerce checkout platform, if the user doesn’t have to wait for the payment, the checkout will be faster than if you have to wait for some system to complete. However, it does come at the cost of fixing some errors if the system is unable to process, whereas if it was synchronous, the user could immediately fix the issue. However, you need to be careful here because this can be an anti-pattern to reduce the latency but incur a much worse user experience downstream.
+
+- Batch Processing
+	- Purpose
+		- Batch processing is a form of asynchronous processing. In batch processing, the system processes a large amount of data periodically to generate output to let clients consume later. Here are some use cases for batch processing:
+			- Run payroll, billing, and accounting for the company
+			- Generate reverse index for documents
+			- Generate word count for documents
+			- Distributed sorting
+		- When talking about batch processing, most people will think about MapReduce. It doesn’t have to be. Batch processing on a high-level means grabbing some data sources periodically, applying custom business logic, and creating an output to be consumed by another consumer. You can write custom code for each process. However, since many big data applications use MapReduce, it’s worth knowing an example of how MapReduce works if the interviewer asks you to provide details about your algorithm in your interview.
